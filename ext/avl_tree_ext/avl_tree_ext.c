@@ -42,11 +42,11 @@ static VALUE avl_tree_ralloc( VALUE klass )
 static VALUE avl_tree_rinsert( VALUE self, VALUE obj )
 {
   avl_tree_r *t;
-  avl_tree_elem elem;
+  avl_tree_elem elem = (avl_tree_elem *)obj;
 
   Data_Get_Struct( self, avl_tree_r, t );
 
-  t->root = avl_tree_insert( t->root, (void *)obj, cmp );
+  t->root = avl_tree_insert( t->root, elem, cmp );
 
   return obj;
 }
@@ -54,11 +54,11 @@ static VALUE avl_tree_rinsert( VALUE self, VALUE obj )
 static VALUE avl_tree_rremove( VALUE self, VALUE obj )
 {
   avl_tree_r *t;
-  avl_tree_elem elem;
+  avl_tree_elem elem = (avl_tree_elem *)obj;
 
   Data_Get_Struct( self, avl_tree_r, t );
 
-  t->root = avl_tree_remove( t->root, (void *)obj, cmp );
+  t->root = avl_tree_remove( t->root, elem, cmp );
 
   return obj;
 }
@@ -107,13 +107,11 @@ static VALUE avl_tree_rmax( VALUE self )
 static avl_tree_pos avl_tree_rfind( VALUE self, VALUE obj )
 {
   avl_tree_r *t;
-  avl_tree_pos node;
-  avl_tree_elem elem;
-  VALUE cpd_elem;
+  avl_tree_elem elem = (avl_tree_elem *)obj;
 
   Data_Get_Struct( self, avl_tree_r, t );
 
-  return avl_tree_find( t->root, (void *)obj, cmp );
+  return avl_tree_find( t->root, elem, cmp );
 }
 
 static inline void yielder( avl_tree_elem elem )
