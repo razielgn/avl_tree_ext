@@ -145,7 +145,7 @@ void Init_avl_tree_ext()
 {
   VALUE AVLTree;
 
-  AVLTree = rb_define_class( "AVLTree", rb_cData );
+  AVLTree = rb_define_class( "AVLTree", rb_cObject );
   rb_include_module( AVLTree, rb_mEnumerable );
 
   rb_define_alloc_func( AVLTree, avl_tree_ralloc );
