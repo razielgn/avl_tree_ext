@@ -1,6 +1,4 @@
-# AvlTreeExt
-
-TODO: Write a gem description
+# AVLTree [![Build Status](https://secure.travis-ci.org/razielgn/avl_tree_ext.png?branch=master)](https://travis-ci.org/razielgn/avl_tree_ext)
 
 ## Installation
 
@@ -18,7 +16,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+``` ruby
+    AVLTree.new.insert "something"
+```
 
 ## Contributing
 
